@@ -1,0 +1,30 @@
+[core]
+    pager = delta
+
+[delta]
+    navigate = true
+    line-numbers = true
+    side-by-side = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[user]
+    useConfigOnly = true
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[push]
+    autoSetupRemote = true
+
+[includeIf "gitdir:~/Projects/olimci/"]
+    path = ~/Projects/olimci/.gitconfig
+
+[includeIf "gitdir:~/Projects/e74000/"]
+    path = ~/Projects/e74000/.gitconfig
+[init]
+	defaultBranch = main

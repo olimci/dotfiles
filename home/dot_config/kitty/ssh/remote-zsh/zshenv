@@ -1,0 +1,2 @@
+# Marker file so zsh never drops into zsh-newuser-install in kitty ssh sessions.
+export STARSHIP_CONFIG="${ZDOTDIR}/starship.toml"

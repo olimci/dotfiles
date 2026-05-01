@@ -1,0 +1,7 @@
+--theme="Monokai Extended"
+--style="numbers,changes,header"
+--paging=auto
+--pager="less -FR"
+--tabs=2
+--map-syntax=".ignore:Git Ignore"
+--map-syntax=".env*:Bash"

@@ -1,0 +1,10 @@
+# Minimal profile for kitty ssh sessions.
+
+export EDITOR="${EDITOR:-nvim}"
+export STARSHIP_CONFIG="${ZDOTDIR}/starship.toml"
+
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+else
+  PROMPT='%F{cyan}%n@%m%f:%F{white}%~%f %# '
+fi

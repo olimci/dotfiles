@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "requires": {
+    "tohru": "0.2.0"
+  },
+  "profile": {
+    "slug": "olimci-dotfiles",
+    "name": "olimci dotfiles",
+    "description": "my personal setup"
+  },
+  "roots": [
+    {
+      "source": "home",
+      "dest": "~",
+      "defaults": {
+        "type": "link"
+      },
+      "entries": {
+        ".config": {
+          "entries": {
+            "atuin": {
+              "entries": {
+                "config.toml": {}
+              }
+            },
+            "bat": {
+              "entries": {
+                "config": {}
+              }
+            },
+            "fastfetch": {
+              "entries": {
+                "config.jsonc": {}
+              }
+            },
+            "git": {
+              "entries": {
+                "ignore": {}
+              }
+            },
+            "htop": {
+              "entries": {
+                "htoprc": {}
+              }
+            },
+            "kitty": {
+              "entries": {
+                "kitty.app.png": {
+                  "type": "copy"
+                },
+                "kitty.conf": {},
+                "ssh": {
+                  "entries": {
+                    "remote-zsh": {
+                      "entries": {
+                        "zshenv": {
+                          "type": "copy"
+                        },
+                        "zshrc": {
+                          "type": "copy"
+                        },
+                        "starship.toml": {
+                          "type": "copy"
+                        }
+                      }
+                    }
+                  }
+                },
+                "ssh.conf": {},
+                "theme.conf": {}
+              }
+            },
+            "nvim": {
+              "entries": {
+                "init.lua": {},
+                "lazy-lock.json": {}
+              }
+            },
+            "starship.toml": {},
+            "yazi": {
+              "entries": {
+                "yazi.toml": {}
+              }
+            },
+            "zed": {
+              "entries": {
+                "settings.json": {}
+              }
+            }
+          }
+        },
+        "Library": {
+          "entries": {
+            "Application Support": {
+              "entries": {
+                "Anki2": {
+                  "entries": {
+                    "addons21": {
+                      "entries": {
+                        "1046608507": {
+                          "entries": {
+                            "config.json": {
+                              "type": "copy"
+                            }
+                          }
+                        },
+                        "2055492159": {
+                          "entries": {
+                            "config.json": {
+                              "type": "copy"
+                            }
+                          }
+                        },
+                        "688199788": {
+                          "entries": {
+                            "config.json": {
+                              "type": "copy"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "nushell": {
+                  "entries": {
+                    "config.nu": {},
+                    "env.nu": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        ".gitconfig": {
+          "type": "copy"
+        },
+        ".hushlogin": {
+          "type": "copy"
+        },
+        ".zshrc": {
+          "type": "copy"
+        }
+      }
+    }
+  ]
+}

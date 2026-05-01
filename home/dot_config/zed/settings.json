@@ -1,0 +1,96 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent": {
+    "dock": "right",
+    "sidebar_side": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "cli_default_open_behavior": "new_window",
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "favorite_config_option_values": {
+        "mode": ["auto"],
+      },
+      "type": "registry",
+    },
+  },
+  "edit_predictions": {
+    "mode": "eager",
+  },
+  "buffer_line_height": "comfortable",
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
+  },
+  "buffer_font_family": "JetBrains Mono",
+  "ui_font_family": "JetBrains Mono",
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false,
+  },
+  "base_keymap": "JetBrains",
+  "ui_font_size": 16.0,
+  "buffer_font_size": 15.0,
+  "theme": "Ayu Darker",
+  "languages": {
+    "Python": {
+      "language_servers": ["ty", "!basedpyright"],
+    },
+    "LaTeX": { "soft_wrap": "editor_width" },
+  },
+  "lsp": {
+    "ruff": {
+      "initialization_options": {
+        "lint": {
+          "ignore": ["E741"],
+        },
+      },
+    },
+    "discord_presence": {
+      "initialization_options": {
+        "application_id": "1263505205522337886",
+        "base_icons_url": "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/",
+
+        "state": "Working on {filename}",
+        "details": "In {workspace}",
+        "large_image": "{base_icons_url}/{language:lo}.png",
+        "large_text": "{language:u}",
+        "small_image": "{base_icons_url}/zed.png",
+        "small_text": "Zed",
+
+        "idle": {
+          "timeout": 300,
+          "action": "change_activity",
+          "state": "Idling",
+          "details": "In Zed",
+          "large_image": "{base_icons_url}/zed.png",
+          "large_text": "Zed",
+          "small_image": "{base_icons_url}/idle.png",
+          "small_text": "Idle",
+        },
+
+        "git_integration": false,
+      },
+    },
+  },
+  "project_panel": {
+    "dock": "left",
+    "sort_mode": "directories_first",
+  },
+}

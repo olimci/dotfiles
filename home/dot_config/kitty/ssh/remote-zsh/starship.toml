@@ -1,0 +1,170 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """$username\
+$hostname:\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$docker_context\
+$conda\
+$cmd_duration\
+$line_break\
+$character"""
+
+palette = 'ayu_dark'
+add_newline = false
+
+[os]
+disabled = true
+style = "bold fg:peach"
+format = '[ $symbol ]($style)'
+
+[username]
+show_always = true
+style_user = "fg:peach"
+style_root = "bold fg:red"
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+style = "fg:peach"
+format = '[@$hostname]($style)'
+
+[directory]
+style = "fg:text"
+format = "[$path]($style)"
+truncation_length = 3
+truncation_symbol = ".../"
+
+[directory.substitutions]
+"Projects" = "pro"
+"Documents" = "doc"
+"Downloads" = "dow"
+"Music" = "mus"
+"Pictures" = "pic"
+"Movies" = "mov"
+"e74000" = "e74"
+"olimci" = "oli"
+
+[git_branch]
+symbol = "git"
+style = "fg:yellow"
+format = '[ $symbol $branch]($style)'
+
+[git_status]
+style = "fg:yellow"
+format = '[ ($all_status$ahead_behind)]($style)'
+
+[nodejs]
+symbol = ""
+style = "fg:sapphire"
+format = '[ nodejs:$version]($style)'
+
+[c]
+symbol = ""
+style = "fg:sapphire"
+format = '[ c:$version]($style)'
+
+[rust]
+symbol = ""
+style = "fg:sapphire"
+format = '[ rust:$version]($style)'
+
+[golang]
+symbol = ""
+style = "fg:sapphire"
+format = '[ go:$version]($style)'
+
+[php]
+symbol = ""
+style = "fg:sapphire"
+format = '[ php:$version]($style)'
+
+[java]
+symbol = ""
+style = "fg:sapphire"
+format = '[ java:$version]($style)'
+
+[kotlin]
+symbol = ""
+style = "fg:sapphire"
+format = '[ kotlin:$version]($style)'
+
+[haskell]
+symbol = ""
+style = "fg:sapphire"
+format = '[ haskell:$version]($style)'
+
+[python]
+symbol = ""
+style = "fg:sapphire"
+format = '[ python:$version( ($virtualenv))]($style)'
+
+[docker_context]
+symbol = ""
+style = "fg:sapphire"
+format = '[ docker($context)]($style)'
+
+[conda]
+symbol = ""
+style = "fg:sapphire"
+format = '[ conda($environment)]($style)'
+ignore_base = false
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+format = '$symbol '
+success_symbol = '[\$](bold fg:teal)'
+error_symbol = '[\$](bold fg:red)'
+vimcmd_symbol = '[\$](bold fg:teal)'
+vimcmd_replace_one_symbol = '[\$](bold fg:sapphire)'
+vimcmd_replace_symbol = '[\$](bold fg:sapphire)'
+vimcmd_visual_symbol = '[\$](bold fg:yellow)'
+
+[cmd_duration]
+show_milliseconds = true
+format = "[ took $duration]($style)"
+style = "fg:overlay1"
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
+
+[palettes.ayu_dark]
+rosewater = "#fafafa"
+flamingo = "#f29668"
+pink = "#d2a6fe"
+mauve = "#d2a6fe"
+red = "#ef7177"
+maroon = "#83353b"
+peach = "#fe8f40"
+yellow = "#feb454"
+green = "#aad84c"
+teal = "#95e5cb"
+sky = "#5ac1fe"
+sapphire = "#39bae5"
+blue = "#5ac1fe"
+lavender = "#d2a6fe"
+text = "#bfbdb6"
+subtext1 = "#a6a5a0"
+subtext0 = "#8a8986"
+overlay2 = "#696a6a"
+overlay1 = "#545557"
+overlay0 = "#3f4043"
+surface2 = "#3e4043"
+surface1 = "#2d2f34"
+surface0 = "#1f2127"
+base = "#0d1016"
+mantle = "#1b1e24"
+crust = "#0d1016"

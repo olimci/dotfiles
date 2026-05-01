@@ -1,0 +1,16 @@
+[manager]
+show_hidden = true
+show_symlink = true
+scrolloff = 4
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+linemode = "size"
+ratio = [1, 3, 4]
+
+[preview]
+wrap = "no"
+tab_size = 2
+max_width = 1200
+max_height = 1800
