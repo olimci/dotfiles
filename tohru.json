@@ -15,132 +15,92 @@
       "defaults": {
         "type": "link"
       },
-      "entries": {
+      "tree": {
         ".config": {
-          "entries": {
-            "atuin": {
-              "entries": {
-                "config.toml": {}
+          "atuin": {
+            "config.toml": []
+          },
+          "bat": {
+            "config": []
+          },
+          "fastfetch": {
+            "config.jsonc": []
+          },
+          "git": {
+            "ignore": []
+          },
+          "htop": {
+            "htoprc": []
+          },
+          "kitty": {
+            "kitty.app.png": [
+              "copy"
+            ],
+            "kitty.conf": [],
+            "ssh": {
+              "remote-zsh": {
+                "zshenv": [
+                  "copy"
+                ],
+                "zshrc": [
+                  "copy"
+                ],
+                "starship.toml": [
+                  "copy"
+                ]
               }
             },
-            "bat": {
-              "entries": {
-                "config": {}
-              }
-            },
-            "fastfetch": {
-              "entries": {
-                "config.jsonc": {}
-              }
-            },
-            "git": {
-              "entries": {
-                "ignore": {}
-              }
-            },
-            "htop": {
-              "entries": {
-                "htoprc": {}
-              }
-            },
-            "kitty": {
-              "entries": {
-                "kitty.app.png": {
-                  "type": "copy"
-                },
-                "kitty.conf": {},
-                "ssh": {
-                  "entries": {
-                    "remote-zsh": {
-                      "entries": {
-                        "zshenv": {
-                          "type": "copy"
-                        },
-                        "zshrc": {
-                          "type": "copy"
-                        },
-                        "starship.toml": {
-                          "type": "copy"
-                        }
-                      }
-                    }
-                  }
-                },
-                "ssh.conf": {},
-                "theme.conf": {}
-              }
-            },
-            "nvim": {
-              "entries": {
-                "init.lua": {},
-                "lazy-lock.json": {}
-              }
-            },
-            "starship.toml": {},
-            "yazi": {
-              "entries": {
-                "yazi.toml": {}
-              }
-            },
-            "zed": {
-              "entries": {
-                "settings.json": {}
-              }
-            }
+            "ssh.conf": [],
+            "theme.conf": []
+          },
+          "nvim": {
+            "init.lua": [],
+            "lazy-lock.json": []
+          },
+          "starship.toml": [],
+          "yazi": {
+            "yazi.toml": []
+          },
+          "zed": {
+            "settings.json": []
           }
         },
         "Library": {
-          "entries": {
-            "Application Support": {
-              "entries": {
-                "Anki2": {
-                  "entries": {
-                    "addons21": {
-                      "entries": {
-                        "1046608507": {
-                          "entries": {
-                            "config.json": {
-                              "type": "copy"
-                            }
-                          }
-                        },
-                        "2055492159": {
-                          "entries": {
-                            "config.json": {
-                              "type": "copy"
-                            }
-                          }
-                        },
-                        "688199788": {
-                          "entries": {
-                            "config.json": {
-                              "type": "copy"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
+          "Application Support": {
+            "Anki2": {
+              "addons21": {
+                "1046608507": {
+                  "config.json": [
+                    "copy"
+                  ]
                 },
-                "nushell": {
-                  "entries": {
-                    "config.nu": {},
-                    "env.nu": {}
-                  }
+                "2055492159": {
+                  "config.json": [
+                    "copy"
+                  ]
+                },
+                "688199788": {
+                  "config.json": [
+                    "copy"
+                  ]
                 }
               }
+            },
+            "nushell": {
+              "config.nu": [],
+              "env.nu": []
             }
           }
         },
-        ".gitconfig": {
-          "type": "copy"
-        },
-        ".hushlogin": {
-          "type": "copy"
-        },
-        ".zshrc": {
-          "type": "copy"
-        }
+        ".gitconfig": [
+          "copy"
+        ],
+        ".hushlogin": [
+          "copy"
+        ],
+        ".zshrc": [
+          "copy"
+        ]
       }
     }
   ]
