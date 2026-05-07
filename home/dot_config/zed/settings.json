@@ -7,11 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "text_rendering_mode": "platform_default",
+  "ui_font_weight": 450.0,
+  "code_lens": "on",
+  "toolbar": {
+    "code_actions": true,
+  },
   "agent": {
     "dock": "right",
     "sidebar_side": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "cli_default_open_behavior": "new_window",
   "outline_panel": {
@@ -46,7 +52,7 @@
   },
   "base_keymap": "JetBrains",
   "ui_font_size": 16.0,
-  "buffer_font_size": 15.0,
+  "buffer_font_size": 16.0,
   "theme": "Ayu Darker",
   "languages": {
     "Python": {

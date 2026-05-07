@@ -8,6 +8,13 @@
     "name": "olimci dotfiles",
     "description": "my personal setup"
   },
+  "hooks": [
+    {
+      "triggers": ["post_load", "post_reload", "post_unload"],
+      "run": ["kitty", "@", "load-config"],
+      "cwd": "home"
+    }
+  ],
   "roots": [
     {
       "source": "home",
@@ -16,6 +23,16 @@
         "type": "link"
       },
       "tree": {
+        ".codex": {
+          "AGENTS.md": ["copy"],
+          "config.toml": ["copy"],
+          "rules": {
+            "default.rules": ["copy"]
+          },
+          "pets": {
+            ".": ["untracked"]
+          }
+        },
         ".config": {
           "atuin": {
             "config.toml": []
@@ -29,25 +46,15 @@
           "git": {
             "ignore": []
           },
-          "htop": {
-            "htoprc": []
-          },
           "kitty": {
-            "kitty.app.png": [
-              "copy"
-            ],
+            "fonts.conf": [],
+            "kitty.app.png": ["copy"],
             "kitty.conf": [],
             "ssh": {
               "remote-zsh": {
-                "zshenv": [
-                  "copy"
-                ],
-                "zshrc": [
-                  "copy"
-                ],
-                "starship.toml": [
-                  "copy"
-                ]
+                "zshenv": ["copy"],
+                "zshrc": ["copy"],
+                "starship.toml": ["copy"]
               }
             },
             "ssh.conf": [],
@@ -70,19 +77,13 @@
             "Anki2": {
               "addons21": {
                 "1046608507": {
-                  "config.json": [
-                    "copy"
-                  ]
+                  "config.json": ["copy"]
                 },
                 "2055492159": {
-                  "config.json": [
-                    "copy"
-                  ]
+                  "config.json": ["copy"]
                 },
                 "688199788": {
-                  "config.json": [
-                    "copy"
-                  ]
+                  "config.json": ["copy"]
                 }
               }
             },
@@ -92,15 +93,9 @@
             }
           }
         },
-        ".gitconfig": [
-          "copy"
-        ],
-        ".hushlogin": [
-          "copy"
-        ],
-        ".zshrc": [
-          "copy"
-        ]
+        ".gitconfig": ["copy"],
+        ".hushlogin": ["copy"],
+        ".zshrc": ["copy"]
       }
     }
   ]

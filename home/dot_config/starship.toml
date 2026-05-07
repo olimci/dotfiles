@@ -50,16 +50,6 @@ format = "[$path]($style)"
 truncation_length = 3
 truncation_symbol = ".../"
 
-[directory.substitutions]
-"Projects" = "pro"
-"Documents" = "doc"
-"Downloads" = "dow"
-"Music" = "mus"
-"Pictures" = "pic"
-"Movies" = "mov"
-"e74000" = "e74"
-"olimci" = "oli"
-
 [git_branch]
 symbol = "git"
 style = "fg:yellow"

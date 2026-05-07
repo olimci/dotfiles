@@ -1,0 +1,23 @@
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+personality = "pragmatic"
+approvals_reviewer = "user"
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."browser-use@openai-bundled"]
+enabled = true
+
+[tui]
+status_line = ["model-with-reasoning", "context-remaining", "current-dir", "project-root", "five-hour-limit", "weekly-limit"]
+theme = "base16"

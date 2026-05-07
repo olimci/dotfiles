@@ -88,6 +88,7 @@ alias ll='eza --all --long --header --git --group-directories-first --icons=auto
 alias lt='eza --tree --level=2 --group-directories-first --icons=auto'
 alias lsa='ll'
 alias lg='lazygit'
+alias ff='fastfetch'
 alias sl='mpv --player-operation-mode=pseudo-gui --no-terminal ~/Movies/Misc/sl.mp4'
 alias cat='bat --style=plain --paging=never'
 
@@ -125,3 +126,10 @@ fi
 if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
 fi
+
+function precmd() {
+  if [[ -n "$_first_prompt_done" ]]; then
+    print ""
+  fi
+  _first_prompt_done=1
+}
