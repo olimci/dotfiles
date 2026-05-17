@@ -1,0 +1,23 @@
+# Keep environment setup here so it is shared by login, interactive, and
+# non-interactive zsh sessions.
+export EDITOR=nvim
+export HOMEBREW_NO_ENV_HINTS=1
+
+export GOPATH="${HOME}/go"
+export GOBIN="${GOPATH}/bin"
+
+typeset -U path PATH
+path=(
+  "${HOME}/.local/bin"
+  "$GOBIN"
+  $path
+)
+
+if [[ -d /opt/homebrew ]]; then
+  export HOMEBREW_PREFIX=/opt/homebrew
+  path=(
+    "$HOMEBREW_PREFIX/bin"
+    "$HOMEBREW_PREFIX/sbin"
+    $path
+  )
+fi

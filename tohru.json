@@ -24,9 +24,6 @@
       },
       "tree": {
         ".config": {
-          "atuin": {
-            "config.toml": []
-          },
           "bat": {
             "config": []
           },
@@ -41,11 +38,9 @@
             "kitty.app.png": ["copy"],
             "kitty.conf": [],
             "ssh": {
-              "remote-zsh": {
-                "zshenv": ["copy"],
-                "zshrc": ["copy"],
-                "starship.toml": ["copy"]
-              }
+              "zshenv": ["copy"],
+              "zshrc": ["copy"],
+              "starship.toml": ["copy"]
             },
             "ssh.conf": [],
             "theme.conf": []
@@ -55,15 +50,13 @@
             "lazy-lock.json": []
           },
           "starship.toml": [],
-          "yazi": {
-            "yazi.toml": []
-          },
           "zed": {
             "settings.json": []
           }
         },
         ".gitconfig": ["copy"],
         ".hushlogin": ["copy"],
+        ".zshenv": ["copy"],
         ".zshrc": ["copy"]
       }
     }
