@@ -25,7 +25,6 @@
       "tree": {
         ".codex": {
           "AGENTS.md": ["copy"],
-          "config.toml": ["copy"],
           "rules": {
             "default.rules": ["copy"]
           },
@@ -92,6 +91,10 @@
               "env.nu": []
             }
           }
+        },
+        "Scripts": {
+          "video-dl.sh": ["copy"],
+          "tohru_reload": []
         },
         ".gitconfig": ["copy"],
         ".hushlogin": ["copy"],

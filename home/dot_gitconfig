@@ -11,6 +11,12 @@
 
 [user]
     useConfigOnly = true
+    name = Oli McInnes
+    email = oli@mcinnes.cc
+
+[url "ssh://git@github-olimci/"]
+    insteadOf = git@github.com:
+    insteadOf = ssh://git@github.com/
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
@@ -21,10 +27,5 @@
 [push]
     autoSetupRemote = true
 
-[includeIf "gitdir:~/Projects/olimci/"]
-    path = ~/Projects/olimci/.gitconfig
-
-[includeIf "gitdir:~/Projects/e74000/"]
-    path = ~/Projects/e74000/.gitconfig
 [init]
 	defaultBranch = main
