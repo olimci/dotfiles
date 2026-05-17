@@ -24,6 +24,9 @@
       },
       "tree": {
         ".config": {
+          ".assets": {
+            "sl.mp4": []
+          },
           "bat": {
             "config": []
           },
