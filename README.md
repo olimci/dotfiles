@@ -2,8 +2,6 @@
 
 These are my dotfiles. I use [tohru](https://github.com/olimci/tohru) to manage them.
 
-Homebrew packages are tracked in [Brewfile](Brewfile). Install them with:
-
 ```sh
 brew bundle install
 ```
