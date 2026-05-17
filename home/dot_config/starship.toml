@@ -1,7 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """$username\
-$hostname:\
+format = """[╭─](fg:overlay0)\
+$username\
+$hostname\
 $env_var\
 $directory\
 $git_branch\
@@ -19,6 +20,7 @@ $docker_context\
 $conda\
 $cmd_duration\
 $line_break\
+[╰─](fg:overlay0)\
 $character"""
 
 palette = 'ayu_dark'
@@ -38,81 +40,92 @@ format = '[$user]($style)'
 [hostname]
 ssh_only = false
 style = "fg:teal"
-format = '[@$hostname]($style)'
+format = '[@$hostname ]($style)'
 
 [env_var]
 variable = "PROMPT_SHELL_TAG"
 format = '[$env_value ](bold fg:sky)'
 
 [directory]
-style = "fg:text"
-format = "[$path]($style)"
+style = "bold fg:text"
+read_only = " ro"
+format = "[in $path]($style)"
 truncation_length = 3
 truncation_symbol = ".../"
 
+[directory.substitutions]
+"Projects" = "pro"
+"Documents" = "doc"
+"Downloads" = "dow"
+"Music" = "mus"
+"Pictures" = "pic"
+"Movies" = "mov"
+"e74000" = "e74"
+"olimci" = "oli"
+
 [git_branch]
-symbol = "git"
+symbol = "git:"
 style = "fg:yellow"
-format = '[ $symbol $branch]($style)'
+format = '[ on $symbol$branch]($style)'
 
 [git_status]
 style = "fg:yellow"
-format = '[ ($all_status$ahead_behind)]($style)'
+format = '[ $all_status$ahead_behind]($style)'
 
 [nodejs]
 symbol = ""
 style = "fg:sapphire"
-format = '[ nodejs:$version]($style)'
+format = '[ via node $version]($style)'
 
 [c]
 symbol = ""
 style = "fg:sapphire"
-format = '[ c:$version]($style)'
+format = '[ via c $version]($style)'
 
 [rust]
 symbol = ""
 style = "fg:sapphire"
-format = '[ rust:$version]($style)'
+format = '[ via rust $version]($style)'
 
 [golang]
 symbol = ""
 style = "fg:sapphire"
-format = '[ go:$version]($style)'
+format = '[ via go $version]($style)'
 
 [php]
 symbol = ""
 style = "fg:sapphire"
-format = '[ php:$version]($style)'
+format = '[ via php $version]($style)'
 
 [java]
 symbol = ""
 style = "fg:sapphire"
-format = '[ java:$version]($style)'
+format = '[ via java $version]($style)'
 
 [kotlin]
 symbol = ""
 style = "fg:sapphire"
-format = '[ kotlin:$version]($style)'
+format = '[ via kotlin $version]($style)'
 
 [haskell]
 symbol = ""
 style = "fg:sapphire"
-format = '[ haskell:$version]($style)'
+format = '[ via haskell $version]($style)'
 
 [python]
 symbol = ""
 style = "fg:sapphire"
-format = '[ python:$version( ($virtualenv))]($style)'
+format = '[ via python $version( ($virtualenv))]($style)'
 
 [docker_context]
 symbol = ""
 style = "fg:sapphire"
-format = '[ docker($context)]($style)'
+format = '[ via docker:$context]($style)'
 
 [conda]
 symbol = ""
 style = "fg:sapphire"
-format = '[ conda($environment)]($style)'
+format = '[ via conda:$environment]($style)'
 ignore_base = false
 
 [line_break]
@@ -121,12 +134,12 @@ disabled = false
 [character]
 disabled = false
 format = '$symbol '
-success_symbol = '[\$](bold fg:teal)'
-error_symbol = '[\$](bold fg:red)'
-vimcmd_symbol = '[\$](bold fg:teal)'
-vimcmd_replace_one_symbol = '[\$](bold fg:sapphire)'
-vimcmd_replace_symbol = '[\$](bold fg:sapphire)'
-vimcmd_visual_symbol = '[\$](bold fg:yellow)'
+success_symbol = '[❯](bold fg:teal)'
+error_symbol = '[❯](bold fg:red)'
+vimcmd_symbol = '[❮](bold fg:teal)'
+vimcmd_replace_one_symbol = '[❮](bold fg:sapphire)'
+vimcmd_replace_symbol = '[❮](bold fg:sapphire)'
+vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
 show_milliseconds = true

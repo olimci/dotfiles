@@ -31,10 +31,6 @@ compinit -d "${ZSH_CACHE_DIR}/zcompdump-${ZSH_VERSION}-${HOST}"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=** r:|=**'
 
-# --- Integrations ---
-if command -v direnv >/dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
 
 if command -v zoxide >/dev/null 2>&1; then
   export _ZO_FZF_OPTS='--height=40% --layout=reverse --border --info=inline'
