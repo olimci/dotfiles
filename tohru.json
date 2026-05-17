@@ -23,15 +23,6 @@
         "type": "link"
       },
       "tree": {
-        ".codex": {
-          "AGENTS.md": ["copy"],
-          "rules": {
-            "default.rules": ["copy"]
-          },
-          "pets": {
-            ".": ["untracked"]
-          }
-        },
         ".config": {
           "atuin": {
             "config.toml": []
@@ -70,31 +61,6 @@
           "zed": {
             "settings.json": []
           }
-        },
-        "Library": {
-          "Application Support": {
-            "Anki2": {
-              "addons21": {
-                "1046608507": {
-                  "config.json": ["copy"]
-                },
-                "2055492159": {
-                  "config.json": ["copy"]
-                },
-                "688199788": {
-                  "config.json": ["copy"]
-                }
-              }
-            },
-            "nushell": {
-              "config.nu": [],
-              "env.nu": []
-            }
-          }
-        },
-        "Scripts": {
-          "video-dl.sh": ["copy"],
-          "tohru_reload": []
         },
         ".gitconfig": ["copy"],
         ".hushlogin": ["copy"],

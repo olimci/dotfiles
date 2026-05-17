@@ -1,3 +1,0 @@
-prefix_rule(pattern=["go", "test"], decision="allow")
-prefix_rule(pattern=["uv", "run"], decision="allow")
-prefix_rule(pattern=["printf", "\\n---\\n"], decision="allow")
