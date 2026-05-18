@@ -1,11 +1,10 @@
 #!/bin/sh
 
 JQ="/opt/homebrew/bin/jq"
+CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 POPUP_WIDTH=250
-WHITE=0xffbfbdb6
-BLACK=0xff080808
-WIDGET_BG=0xee080808
-TRANSPARENT=0x00000000
+
+. "$CONFIG_DIR/colors.sh"
 
 current_volume() {
   osascript -e 'output volume of (get volume settings)' 2>/dev/null \

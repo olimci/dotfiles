@@ -3,12 +3,14 @@
 NOWPLAYING="/opt/homebrew/bin/nowplaying-cli"
 JQ="/opt/homebrew/bin/jq"
 MAGICK="/opt/homebrew/bin/magick"
+CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 STATE_DIR="${TMPDIR:-/tmp}/sketchybar_media"
 TEXT_FILE="$STATE_DIR/text"
 ARTWORK_FILE="$STATE_DIR/artwork"
 RATE_FILE="$STATE_DIR/rate"
 ARTWORK_RAW="${TMPDIR:-/tmp}/sketchybar_nowplaying_artwork_raw"
 
+. "$CONFIG_DIR/colors.sh"
 mkdir -p "$STATE_DIR"
 
 INFO="$("$NOWPLAYING" get --json title artist playbackRate artworkData 2>/dev/null)"
@@ -27,7 +29,7 @@ fi
 if [ -z "$MEDIA_TEXT" ]; then
   sketchybar --set media.bracket drawing=off \
              --set media.cover drawing=off \
-             --set media.text drawing=off popup.drawing=off label.color=0xffbfbdb6
+             --set media.text drawing=off popup.drawing=off label.color="$WHITE"
   exit 0
 fi
 
@@ -51,7 +53,7 @@ show_cover_icon() {
   sketchybar --set media.cover \
              icon.drawing=on \
              icon="$TOGGLE_ICON" \
-             icon.color=0xffbfbdb6 \
+             icon.color="$WHITE" \
              background.border_width=0 \
              background.border_color=0x00000000 \
              background.image.drawing=off
@@ -111,5 +113,5 @@ fi
 
 sketchybar --set media.bracket drawing=on \
            --set media.cover drawing=on \
-           --set media.text drawing=on label=" $MEDIA_TEXT" \
+           --set media.text drawing=on label="$MEDIA_TEXT" \
            --set media.control.toggle icon="$TOGGLE_ICON"

@@ -1,15 +1,18 @@
 #!/bin/sh
 
+CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
+. "$CONFIG_DIR/colors.sh"
+
 if [ "$SELECTED" = "true" ]; then
   sketchybar --set "$NAME" \
              icon.highlight=on \
-             background.color=0xffbfbdb6 \
-             background.border_color=0x00000000 \
+             background.color="$WHITE" \
+             background.border_color="$TRANSPARENT" \
              background.border_width=1
 else
   sketchybar --set "$NAME" \
              icon.highlight=off \
-             background.color=0xee080808 \
-             background.border_color=0x00000000 \
+             background.color="$WIDGET_BG" \
+             background.border_color="$TRANSPARENT" \
              background.border_width=0
 fi

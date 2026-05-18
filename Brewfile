@@ -33,6 +33,7 @@ brew "tree-sitter-cli"
 brew "unzip"
 brew "uv"
 brew "zoxide"
+brew "zsh-autosuggestions"
 brew "zsh-history-substring-search"
 brew "zsh-syntax-highlighting"
 
