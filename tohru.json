@@ -31,7 +31,8 @@
             "config": []
           },
           "fastfetch": {
-            "config.jsonc": []
+            "config.jsonc": [],
+            "small.jsonc": []
           },
           "git": {
             "ignore": []
@@ -51,6 +52,27 @@
           "nvim": {
             "init.lua": [],
             "lazy-lock.json": []
+          },
+          "sketchybar": {
+            "bar.lua": [],
+            "colors.lua": [],
+            "default.lua": [],
+            "icons.lua": [],
+            "init.lua": [],
+            "items": {
+              "calendar.lua": [],
+              "front_app.lua": [],
+              "init.lua": [],
+              "media.lua": [],
+              "spaces.lua": [],
+              "widgets": {
+                "battery.lua": [],
+                "init.lua": [],
+                "volume.lua": []
+              }
+            },
+            "settings.lua": [],
+            "sketchybarrc": []
           },
           "starship.toml": [],
           "zed": {

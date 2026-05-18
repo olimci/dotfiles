@@ -1,0 +1,8 @@
+#!/usr/bin/env lua
+
+package.cpath = package.cpath
+  .. ";"
+  .. os.getenv("HOME")
+  .. "/.local/share/sketchybar_lua/?.so"
+
+require("init")
