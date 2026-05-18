@@ -54,24 +54,15 @@
             "lazy-lock.json": []
           },
           "sketchybar": {
-            "bar.lua": [],
-            "colors.lua": [],
-            "default.lua": [],
-            "icons.lua": [],
-            "init.lua": [],
-            "items": {
-              "calendar.lua": [],
-              "front_app.lua": [],
-              "init.lua": [],
-              "media.lua": [],
-              "spaces.lua": [],
-              "widgets": {
-                "battery.lua": [],
-                "init.lua": [],
-                "volume.lua": []
-              }
+            "plugins": {
+              "battery.sh": [],
+              "calendar.sh": [],
+              "media.sh": [],
+              "media_hover.sh": [],
+              "media_toggle.sh": [],
+              "space.sh": [],
+              "volume.sh": []
             },
-            "settings.lua": [],
             "sketchybarrc": []
           },
           "starship.toml": [],
