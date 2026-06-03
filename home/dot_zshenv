@@ -1,11 +1,9 @@
-# Keep environment setup here so it is shared by login, interactive, and
-# non-interactive zsh sessions.
-
 EDITOR="nvim"
 if [[ "$TERM" == "xterm-kitty" && -z "$SSH_CONNECTION" && -z "$SSH_CLIENT" && -z "$SSH_TTY" ]]; then
     export EDITOR="zed --wait"
 fi
 
+export PYTHONPYCACHEPREFIX="$HOME/.cache/python/pycache"
 export HOMEBREW_NO_ENV_HINTS=1
 
 export GOPATH="${HOME}/go"
@@ -23,6 +21,13 @@ if [[ -d /opt/homebrew ]]; then
   path=(
     "$HOMEBREW_PREFIX/bin"
     "$HOMEBREW_PREFIX/sbin"
+    $path
+  )
+fi
+
+if [[ -d "$HOME/Projects/SketchyBar/bin" ]]; then
+  path=(
+    "$HOME/Projects/SketchyBar/bin"
     $path
   )
 fi

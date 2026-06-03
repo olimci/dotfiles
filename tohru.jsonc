@@ -1,8 +1,6 @@
 {
-  "schema": 1,
-  "requires": {
-    "tohru": "0.2.0"
-  },
+  "$schema": "https://raw.githubusercontent.com/olimci/tohru/refs/heads/main/_assets/manifest.schema.json",
+  "version": "1.0.0",
   "profile": {
     "slug": "olimci-dotfiles",
     "name": "olimci dotfiles",
@@ -10,7 +8,7 @@
   },
   "hooks": [
     {
-      "triggers": ["post_load", "post_reload", "post_unload"],
+      "triggers": ["post_load", "post_unload"],
       "run": ["kitty", "@", "load-config"],
       "cwd": "home"
     }
@@ -60,6 +58,7 @@
               "calendar.sh": [],
               "media.sh": [],
               "media_hover.sh": [],
+              "media_rotate.sh": [],
               "media_toggle.sh": [],
               "space.sh": [],
               "space_watcher.sh": [],

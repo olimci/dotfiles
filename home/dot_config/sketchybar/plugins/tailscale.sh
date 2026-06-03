@@ -35,10 +35,9 @@ add_peer() {
   online="$4"
 
   icon="○"
-  icon_color="$POPUP_BORDER"
+  icon_color="$WHITE"
   if [ "$online" = "true" ]; then
     icon="●"
-    icon_color="$TEAL"
   fi
 
   click_script=""
@@ -82,7 +81,7 @@ add_peer_summary() {
                    padding_right=6 \
                    icon.drawing=off \
                    label="$label" \
-                   label.color="$POPUP_BORDER" \
+                   label.color="$WHITE" \
                    label.font="$FONT_TEXT:Medium:11.0" \
                    label.align=center \
                    label.y_offset=1 \
@@ -109,9 +108,9 @@ open_app() {
 update_status() {
   TS="$(tailscale_bin)"
   if [ -z "$TS" ] || [ ! -x "$JQ" ]; then
-    sketchybar --set "$NAME" icon.color="$RED" label="off"
+    sketchybar --set "$NAME" icon.color="$WHITE" label="off"
     clear_peers
-    set_status "missing cli" "$RED" "$RED"
+    set_status "missing cli" "$WHITE" "$TRANSPARENT"
     return 0
   fi
 
@@ -119,9 +118,9 @@ update_status() {
   BACKEND="$(printf '%s' "$INFO" | "$JQ" -r '.BackendState // empty' 2>/dev/null)"
 
   if [ "$BACKEND" != "Running" ]; then
-    sketchybar --set "$NAME" icon.color="$RED" label="off"
+    sketchybar --set "$NAME" icon.color="$WHITE" label="off"
     clear_peers
-    set_status "${BACKEND:-stopped}" "$RED" "$RED"
+    set_status "${BACKEND:-stopped}" "$WHITE" "$TRANSPARENT"
     return 0
   fi
 
@@ -130,16 +129,14 @@ update_status() {
   HEALTH_COUNT="$(printf '%s' "$INFO" | "$JQ" -r '.Health | length')"
 
   label="on"
-  color="$TEAL"
+  color="$WHITE"
   status="connected"
 
   if [ "$EXIT_ACTIVE" = "true" ]; then
     label="ex"
-    color="$ORANGE"
     status="exit: $IP"
   elif [ "$HEALTH_COUNT" -gt 0 ] 2>/dev/null; then
     label="!"
-    color="$YELLOW"
     status="warning: $IP"
   elif [ -n "$IP" ]; then
     status="connected: $IP"

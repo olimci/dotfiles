@@ -35,6 +35,8 @@ sketchybar --default updates=when_shown \
                      padding_right=4 \
                      scroll_texts=on
 
+sketchybar --add event media_refresh
+
 space_size=28
 space_ids=""
 current_space_id=""
@@ -155,15 +157,15 @@ sketchybar --add item spaces.watcher left \
                  updates=on \
                  update_freq=5 \
                  script="$PLUGIN_DIR/space_watcher.sh" \
-           --subscribe spaces.watcher forced routine space_change display_change system_woke
+           --subscribe spaces.watcher space_change display_change system_woke
 
 sketchybar --add item calendar right \
            --set calendar \
-                 icon.color="$ORANGE" \
+                 icon.color="$WHITE" \
                  icon.padding_left=8 \
                  icon.y_offset=1 \
                  icon.font="$FONT_TEXT:ExtraBold:12.0" \
-                 label.color="$TEAL" \
+                 label.color="$WHITE" \
                  label.padding_right=8 \
                  label.width=49 \
                  label.align=right \
@@ -177,7 +179,7 @@ sketchybar --add item calendar right \
                  background.border_color="$TRANSPARENT" \
                  background.border_width=0 \
                  script="$PLUGIN_DIR/calendar.sh" \
-           --subscribe calendar forced routine system_woke
+           --subscribe calendar system_woke
 
 sketchybar --add bracket calendar.bracket calendar \
            --set calendar.bracket \
@@ -197,18 +199,26 @@ sketchybar --add item calendar.padding right \
 
 sketchybar --add item widgets.battery right \
            --set widgets.battery \
+                 width="$space_size" \
+                 padding_left=0 \
+                 padding_right=0 \
                  background.drawing=off \
-                 icon.font="$FONT_TEXT:Regular:19.0" \
+                 icon.font="$FONT_TEXT:SemiBold:12.0" \
+                 icon.width="$space_size" \
+                 icon.align=center \
+                 icon.padding_left=0 \
+                 icon.padding_right=0 \
                  icon.y_offset=1 \
-                 label.font="$FONT_NUMBERS:Medium:13.0" \
-                 label.y_offset=1 \
+                 label.drawing=off \
                  update_freq=180 \
                  script="$PLUGIN_DIR/battery.sh" \
-           --subscribe widgets.battery forced routine power_source_change system_woke
+           --subscribe widgets.battery power_source_change system_woke
 
 sketchybar --add bracket widgets.battery.bracket widgets.battery \
            --set widgets.battery.bracket \
                  background.color="$WIDGET_BG" \
+                 background.height="$space_size" \
+                 background.corner_radius=14 \
                  background.border_width=0 \
                  background.border_color="$TRANSPARENT"
 
@@ -221,154 +231,18 @@ sketchybar --add item widgets.battery.padding right \
                  icon.drawing=off \
                  label.drawing=off
 
-sketchybar --add item widgets.tailscale right \
-           --set widgets.tailscale \
-                 icon="󰖟" \
-                 icon.color="$TEAL" \
-                 icon.font="$FONT_TEXT:Regular:14.0" \
-                 icon.padding_left=7 \
-                 icon.padding_right=1 \
-                 icon.y_offset=1 \
-                 label="ts" \
-                 label.width=17 \
-                 label.align=left \
-                 label.font="$FONT_TEXT:Medium:13.0" \
-                 label.padding_left=1 \
-                 label.padding_right=7 \
-                 label.y_offset=1 \
-                 update_freq=60 \
-                 background.color="$WIDGET_BG" \
-                 background.border_color="$TRANSPARENT" \
-                 background.border_width=0 \
-                 popup.align=center \
-                 popup.background.color="$TRANSPARENT" \
-                 popup.background.border_width=0 \
-                 popup.background.shadow.drawing=off \
-                 script="$PLUGIN_DIR/tailscale.sh" \
-           --subscribe widgets.tailscale forced routine mouse.clicked system_woke
+MEDIA_STATE_DIR="${TMPDIR:-/tmp}/sketchybar_media"
+mkdir -p "$MEDIA_STATE_DIR"
+printf '' > "$MEDIA_STATE_DIR/applied_artwork"
+printf 'off' > "$MEDIA_STATE_DIR/rotator_state"
+printf '0' > "$MEDIA_STATE_DIR/rotation"
 
-sketchybar --add bracket widgets.tailscale.bracket widgets.tailscale \
-           --set widgets.tailscale.bracket \
-                 background.color="$WIDGET_BG" \
-                 background.border_width=0 \
-                 background.border_color="$TRANSPARENT" \
-                 popup.align=center \
-                 popup.background.color="$TRANSPARENT" \
-                 popup.background.border_width=0 \
-                 popup.background.shadow.drawing=off
-
-sketchybar --add item tailscale.status popup.widgets.tailscale \
-           --set tailscale.status \
-                 width=196 \
-                 align=center \
-                 padding_left=6 \
-                 padding_right=6 \
-                 icon="●" \
-                 icon.color="$TEAL" \
-                 icon.font="$FONT_TEXT:Regular:11.0" \
-                 icon.padding_left=8 \
-                 icon.padding_right=6 \
-                 icon.y_offset=1 \
-                 label.color="$WHITE" \
-                 label.font="$FONT_NUMBERS:Medium:12.0" \
-                 label.align=left \
-                 label.max_chars=28 \
-                 label.padding_right=8 \
-                 label.y_offset=1 \
-                 background.color="$WIDGET_BG" \
-                 background.height=26 \
-                 background.corner_radius=13 \
-                 background.border_width=1 \
-                 background.border_color=0x5995e5cb
-
-sketchybar --add item widgets.tailscale.padding right \
-           --set widgets.tailscale.padding \
-                 width="$GROUP_PADDING" \
-                 padding_left=0 \
-                 padding_right=0 \
-                 background.drawing=off \
-                 icon.drawing=off \
-                 label.drawing=off
-
-sketchybar --add item widgets.volume1 right \
-           --set widgets.volume1 \
-                 background.drawing=off \
-                 icon.drawing=off \
-                 label="??%" \
-                 label.padding_left=-1 \
-                 label.font="$FONT_NUMBERS:Medium:13.0" \
-                 label.y_offset=1 \
-                 script="$PLUGIN_DIR/volume.sh" \
-           --subscribe widgets.volume1 forced volume_change mouse.clicked mouse.exited.global mouse.scrolled
-
-sketchybar --add item widgets.volume2 right \
-           --set widgets.volume2 \
-                 padding_right=-1 \
-                 background.drawing=off \
-                 icon="" \
-                 icon.width=0 \
-                 icon.align=left \
-                 icon.color=0xff5ac1fe \
-                 icon.font="$FONT_TEXT:Regular:14.0" \
-                 label.width=25 \
-                 label.align=left \
-                 label.font="$FONT_TEXT:Regular:14.0" \
-                 label.y_offset=1 \
-                 script="$PLUGIN_DIR/volume.sh" \
-           --subscribe widgets.volume2 mouse.clicked mouse.scrolled
-
-sketchybar --add bracket widgets.volume.bracket widgets.volume2 widgets.volume1 \
-           --set widgets.volume.bracket \
-                 background.color="$WIDGET_BG" \
-                 background.border_width=0 \
-                 background.border_color="$TRANSPARENT" \
-                 popup.align=center \
-                 popup.background.color="$TRANSPARENT" \
-                 popup.background.border_width=0 \
-                 popup.background.shadow.drawing=off
-
-sketchybar --add item widgets.volume.padding right \
-           --set widgets.volume.padding \
-                 width="$GROUP_PADDING" \
-                 padding_left=0 \
-                 padding_right=0 \
-                 background.drawing=off \
-                 icon.drawing=off \
-                 label.drawing=off
-
-sketchybar --add slider widgets.volume.slider 250 \
-           --set widgets.volume.slider \
-                 position=popup.widgets.volume.bracket \
-                 padding_left=12 \
-                 padding_right=12 \
-                 slider.highlight_color="$TEAL" \
-                 slider.background.height=5 \
-                 slider.background.corner_radius=2 \
-                 slider.background.color="$SURFACE" \
-                 slider.knob="●" \
-                 slider.knob.drawing=on \
-                 slider.knob.color="$WHITE" \
-                 background.color="$WIDGET_BG" \
-                 background.height=30 \
-                 background.corner_radius=15 \
-                 background.border_width=1 \
-                 background.border_color=0x5995e5cb \
-                 click_script='osascript -e "set volume output volume $PERCENTAGE"'
-
-sketchybar --add event media_refresh
-
-sketchybar --add item media.watcher right \
-           --set media.watcher \
-                 width=0 \
-                 padding_left=0 \
-                 padding_right=0 \
-                 background.drawing=off \
-                 icon.drawing=off \
-                 label.drawing=off \
-                 updates=on \
-                 update_freq=2 \
-                 script="$PLUGIN_DIR/media.sh" \
-           --subscribe media.watcher forced routine system_woke media_refresh
+sketchybar --add item media.rotator right \
+           --set media.rotator \
+                 drawing=off \
+                 updates=off \
+                 update_freq=5 \
+                 script="$PLUGIN_DIR/media_rotate.sh"
 
 sketchybar --add item media.text right \
            --set media.text \
@@ -377,7 +251,7 @@ sketchybar --add item media.text right \
                  padding_right=0 \
                  icon.drawing=off \
                  label.width=166 \
-                 label.max_chars=24 \
+                 label.max_chars=21 \
                  label.scroll_duration=360 \
                  label.align=left \
                  label.padding_left=6 \
@@ -387,7 +261,7 @@ sketchybar --add item media.text right \
                  scroll_texts=on \
                  background.color="$WIDGET_BG" \
                  background.border_width=1 \
-                 background.border_color=0x28bfbdb6 \
+                 background.border_color="$TRANSPARENT" \
                  background.height=28 \
                  background.corner_radius=14 \
                  popup.align=center \
@@ -405,7 +279,6 @@ sketchybar --add item media.cover right \
                  drawing=off \
                  padding_left=8 \
                  padding_right=8 \
-                 background.image.scale=0.25 \
                  background.image.drawing=off \
                  background.image.corner_radius=14 \
                  background.image.padding_left=0 \
@@ -465,8 +338,27 @@ sketchybar --set media.control.forward \
                  icon.padding_right=0 \
                  click_script="(nowplaying-cli next; sketchybar --trigger media_refresh; sleep 0.35; sketchybar --trigger media_refresh; sleep 1; sketchybar --trigger media_refresh) &"
 
+sketchybar --add item media.watcher right \
+           --set media.watcher \
+                 width=0 \
+                 padding_left=0 \
+                 padding_right=0 \
+                 background.drawing=off \
+                 icon.drawing=off \
+                 label.drawing=off \
+                 updates=on \
+                 update_freq=2 \
+                 script="$PLUGIN_DIR/media.sh" \
+           --subscribe media.watcher system_woke media_refresh
+
 NAME=calendar "$PLUGIN_DIR/calendar.sh"
 NAME=widgets.battery "$PLUGIN_DIR/battery.sh"
-NAME=widgets.tailscale SENDER=forced "$PLUGIN_DIR/tailscale.sh"
-NAME=widgets.volume1 SENDER=forced "$PLUGIN_DIR/volume.sh"
 sketchybar --trigger media_refresh
+(
+  sleep 0.12
+  sketchybar --trigger media_refresh
+  sleep 0.28
+  sketchybar --trigger media_refresh
+  sleep 0.6
+  sketchybar --trigger media_refresh
+) &

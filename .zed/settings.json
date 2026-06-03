@@ -1,7 +1,7 @@
 {
   "file_types": {
     "Shell Script": ["**/home/dot_zshenv", "**/home/dot_zshrc"],
-    "INI": ["**/home/dot_gitconfig"],
+    "Git Config": ["**/home/dot_gitconfig"],
     "Git Ignore": ["**/home/dot_config/git/ignore"],
   },
 }

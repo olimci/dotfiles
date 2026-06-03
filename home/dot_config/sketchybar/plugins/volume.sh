@@ -45,8 +45,7 @@ update_volume() {
   fi
 
   sketchybar --set widgets.volume2 label="$icon" \
-             --set widgets.volume1 label="${lead}${volume}%" \
-             --set widgets.volume.slider slider.percentage="$volume"
+             --set widgets.volume1 label="${lead}${volume}%"
 }
 
 toggle_details() {
