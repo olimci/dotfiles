@@ -35,14 +35,17 @@
           "git": {
             "ignore": []
           },
+          "holo": {
+            "global.jsonc": []
+          },
           "kitty": {
             "fonts.conf": [],
-            "kitty.app.png": ["copy"],
+            "kitty.app.png": ["c"],
             "kitty.conf": [],
             "ssh": {
-              "zshenv": ["copy"],
-              "zshrc": ["copy"],
-              "starship.toml": ["copy"]
+              "zshenv": ["c"],
+              "zshrc": ["c"],
+              "starship.toml": ["c"]
             },
             "ssh.conf": [],
             "theme.conf": []
@@ -69,13 +72,15 @@
           },
           "starship.toml": [],
           "zed": {
-            "settings.json": []
+            "settings.json": ["c", "u"],
+            "settings-ai.json": ["c"],
+            "settings-noai.json": ["c"]
           }
         },
-        ".gitconfig": ["copy"],
-        ".hushlogin": ["copy"],
-        ".zshenv": ["copy"],
-        ".zshrc": ["copy"]
+        ".gitconfig": ["c"],
+        ".hushlogin": ["c"],
+        ".zshenv": ["c"],
+        ".zshrc": ["c"]
       }
     }
   ]

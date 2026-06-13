@@ -56,6 +56,9 @@ mkdir -p "$ZSH_CACHE_DIR"
 
 autoload -Uz compinit
 compinit -d "${ZSH_CACHE_DIR}/zcompdump-${ZSH_VERSION}-${HOST}"
+source <(holo : completion zsh)
+source <(shizuka completion zsh)
+source <(tohru completion zsh)
 
 # Nicer completion menus
 zstyle ':completion:*' menu select
@@ -91,6 +94,8 @@ if command -v zoxide >/dev/null 2>&1; then
   export _ZO_RESOLVE_SYMLINKS=1
   eval "$(zoxide init zsh --cmd z --hook pwd)"
 fi
+
+eval "$(holo : hook zsh)"
 
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"

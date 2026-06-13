@@ -1,0 +1,125 @@
+{
+  "$schema": "https://raw.githubusercontent.com/olimci/holo/refs/heads/main/.assets/manifest.schema.json",
+  "version": "0",
+  "env": {},
+  "scripts": {
+    "brew": {
+      "usage": "update, upgrade, and clean Homebrew",
+      "steps": {
+        "update": { "cmd": "brew update" },
+        "upgrade": { "cmd": "brew upgrade", "after": ["update"] },
+        "cleanup": { "cmd": "brew cleanup", "after": ["upgrade"] },
+      },
+    },
+    "goall": {
+      "usage": "run the standard Go maintenance checks",
+      "steps": {
+        "fmt": { "cmd": "go fmt ./..." },
+        "fix": { "cmd": "go fix -diff ./...", "after": ["fmt"] },
+        "vet": { "cmd": "go vet ./...", "after": ["fix"] },
+        "test": { "cmd": "go test ./...", "after": ["fix"] },
+      },
+    },
+    "git-state": {
+      "usage": "show current git branch, status, and recent commits",
+      "steps": {
+        "show": { "cmd": "git branch --show-current && git status --short --branch && git log --oneline --decorate -5" },
+      },
+    },
+    "git-sync": {
+      "usage": "fetch pruned remotes and fast-forward the current branch",
+      "steps": {
+        "fetch": { "cmd": "git fetch --prune" },
+        "pull": { "cmd": "git pull --ff-only", "after": ["fetch"] },
+      },
+    },
+    "git-publish": {
+      "usage": "push the current branch and set its upstream",
+      "steps": {
+        "push": { "cmd": "git push -u origin HEAD" },
+      },
+    },
+    "git-amend": {
+      "usage": "amend the last commit without changing its message",
+      "steps": {
+        "amend": { "cmd": "git commit --amend --no-edit" },
+      },
+    },
+    "git-tags": {
+      "usage": "show tags on HEAD and the latest repository tags",
+      "steps": {
+        "show": { "cmd": "git tag --points-at HEAD && git tag --sort=-v:refname | head -10" },
+      },
+    },
+    "commit-tag": {
+      "usage": "commit staged changes and create a git tag",
+      "args": [
+        { "name": "message", "usage": "commit message" },
+        { "name": "tag", "usage": "tag name" },
+      ],
+      "params": {
+        "message": { "type": "string" },
+        "tag": { "type": "string" },
+      },
+      "steps": {
+        "commit": {
+          "cmd": "git commit -m \"$MESSAGE\"",
+          "env": {
+            "MESSAGE": "${{ params.message }}",
+          },
+        },
+        "tag": {
+          "cmd": "git tag \"$TAG\"",
+          "env": {
+            "TAG": "${{ params.tag }}",
+          },
+          "after": ["commit"],
+        },
+      },
+    },
+    "push-tag": {
+      "usage": "push the current branch and a git tag",
+      "args": [
+        { "name": "tag", "usage": "tag name" },
+      ],
+      "params": {
+        "tag": { "type": "string" },
+      },
+      "steps": {
+        "push": { "cmd": "git push origin HEAD" },
+        "tag": {
+          "cmd": "git push origin \"$TAG\"",
+          "env": {
+            "TAG": "${{ params.tag }}",
+          },
+          "after": ["push"],
+        },
+      },
+    },
+    "pyall": {
+      "usage": "run the standard Python maintenance checks",
+      "steps": {
+        "sync": { "cmd": "uv sync" },
+        "format": { "cmd": "uv run ruff format .", "after": ["sync"] },
+        "lint": { "cmd": "uv run ruff check .", "after": ["format"] },
+        "typecheck": { "cmd": "uv run ty check .", "after": ["sync"] },
+      },
+    },
+    "zed-private": {
+      "usage": "disable Zed AI features",
+      "steps": {
+        "copy": {
+          "cmd": "dir=\"${XDG_CONFIG_HOME:-$HOME/.config}/zed\"\ncp \"$dir/settings-noai.json\" \"$dir/settings.json\""
+        },
+      },
+    },
+    "zed-public": {
+      "usage": "enable Zed AI features",
+      "steps": {
+        "copy": {
+          "cmd": "dir=\"${XDG_CONFIG_HOME:-$HOME/.config}/zed\"\ncp \"$dir/settings-ai.json\" \"$dir/settings.json\""
+        },
+      },
+    },
+  },
+}

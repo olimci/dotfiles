@@ -11,7 +11,7 @@
 
 [user]
     useConfigOnly = true
-    name = Oli McInnes
+    name = Oliver McInnes
     email = oli@mcinnes.cc
 
 [url "ssh://git@github-olimci/"]
